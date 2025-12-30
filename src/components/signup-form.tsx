@@ -30,10 +30,7 @@ export function SignupForm({
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
           <Input id="email" type="email" placeholder="m@example.com" required />
-          <FieldDescription>
-            We&apos;ll use this to contact you. We will not share your email
-            with anyone else.
-          </FieldDescription>
+         
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
