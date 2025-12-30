@@ -15,7 +15,7 @@ export default function SignupPage() {
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full shadow-lg lg:w-[80%] border-1 border-grayOne rounded-md p-2">
+          <div className="w-full  lg:w-[80%] e rounded-md p-2">
             <SignupForm />
           </div>
         </div>
