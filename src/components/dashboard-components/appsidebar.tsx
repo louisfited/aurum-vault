@@ -9,6 +9,7 @@ import { Collapsible, CollapsibleContent } from '../ui/collapsible'
 import { CollapsibleTrigger } from '@radix-ui/react-collapsible'
 import { signout } from '@/libs/actions/auth-actions'
 import { useRouter } from 'next/navigation'
+import { link } from 'fs'
 
 
 const items = [
@@ -44,17 +45,17 @@ const menu = [
   {
     id:1,
     title:"Account",
-    subMenu:[{name:"Balance",icon:Wallet},{name:"Deposit Funds",icon:ArrowDownToLine},{name:"Withdraw Funds",icon:ArrowUpRight}]
+    subMenu:[{name:"Balance",icon:Wallet,link:"/dashboard/balance"},{name:"Deposit Funds",icon:ArrowDownToLine,link:"/dashboard/deposit-funds"},{name:"Withdraw Funds",icon:ArrowUpRight, link:"/dashboard/withdraw-funds"}]
   },
   {
     id:2,
     title:"History",
-    subMenu:[{name:"Orders",icon:ClipboardList},{name:"Deposits",icon:Receipt},{name:"Withdrawals",icon:ArrowUpFromLine}]
+    subMenu:[{name:"Orders",icon:ClipboardList,link:"/"},{name:"Deposits",icon:Receipt,link:"/"},{name:"Withdrawals",icon:ArrowUpFromLine,link:"/"}]
   },
   {
     id:3,
     title:"Buy/Sell",
-    subMenu:[{name:"Buy",icon:ArrowUpRight},{name:"Sell",icon:ArrowDownRight}]
+    subMenu:[{name:"Buy",icon:ArrowUpRight,link:"/"},{name:"Sell",icon:ArrowDownRight,link:"/"}]
   }
 ]
 const AppSidebar = () => {
@@ -105,7 +106,7 @@ return <SidebarMenuItem key={item.title}>
  {menu.map((item,index)=>{
 
   
-   return   <Collapsible defaultOpen className="group/collapsible">
+   return   <Collapsible key={index + 1} defaultOpen className="group/collapsible">
   <SidebarGroup>
   <SidebarGroupLabel asChild>
     <CollapsibleTrigger className="flex w-full items-center">
@@ -121,7 +122,7 @@ return <SidebarMenuItem key={item.title}>
 
       return    <SidebarMenuItem>
       <SidebarMenuButton asChild>
-        <Link href="/">
+        <Link href={subItem.link}>
           <subItem.icon />
           <span>{subItem.name}</span>
         </Link>
@@ -154,7 +155,7 @@ return <SidebarMenuItem key={item.title}>
       {["Account","Settings","SignOut"].map((item,index)=>{
         
         return <DropdownMenuItem
-
+key={index + 1}
         onClick={async()=>{
 if (item == "SignOut") {
  const res = await signout()

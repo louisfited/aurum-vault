@@ -17,11 +17,14 @@ import { z } from "zod"
 import { loginSchema } from "@/libs/schemas/auth-schemas"
 import { loginAction } from "@/libs/actions/auth-actions"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { Loader, Loader2, Loader2Icon, LoaderCircle, LoaderPinwheel } from "lucide-react"
 
 
 
 export function SigninForm({ className, ...props }: React.ComponentProps<"form">) {
   const router = useRouter()
+  const [isLoading,setIsLoading] =useState(false)
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -34,12 +37,23 @@ export function SigninForm({ className, ...props }: React.ComponentProps<"form">
 
  async function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log("Form submitted:", data)
+    setIsLoading(true)
   
-   const res = await  loginAction(data)
-   if (res.success) {
-    router.push("/")
-   }
-   
+try {
+    const res = await loginAction(data)
+    if (res.success) {
+      setIsLoading(false)
+      router.push("/dashboard")
+    }
+    else{
+      setIsLoading(false)
+         console.log("error message",res.message);
+      
+    }
+  } catch (error) {
+    console.error("Login failed:", error)
+    setIsLoading(false)
+  }
   }
 
   return (
@@ -95,7 +109,9 @@ export function SigninForm({ className, ...props }: React.ComponentProps<"form">
         {/* Submit */}
         <Field>
           <Button type="submit" disabled={form.formState.isSubmitting}>
-            Login
+            
+            {isLoading ?  <Loader2 className="animate-spin"/>  : "Login" }
+           
           </Button>
         </Field>
 

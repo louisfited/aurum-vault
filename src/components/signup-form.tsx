@@ -17,6 +17,8 @@ import { z } from "zod"
 import { signupSchema } from "@/libs/schemas/auth-schemas"
 import { createAccountAction } from "@/libs/actions/auth-actions"
 import { useRouter } from "next/navigation"
+import { Loader2 } from "lucide-react"
+import { useState } from "react"
 
 // Optional: If your signupSchema does not include confirmPassword, add it here:
 const extendedSignupSchema = signupSchema.extend({
@@ -27,7 +29,7 @@ const extendedSignupSchema = signupSchema.extend({
 })
 
 export function SignupForm({ className, ...props }: React.ComponentProps<"form">) {
-
+  const [isLoading,setIsLoading] =useState<boolean>(false)
   const router = useRouter()
   const form = useForm<z.infer<typeof extendedSignupSchema>>({
     resolver: zodResolver(extendedSignupSchema),
@@ -41,13 +43,26 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"form">
 
  async function onSubmit(data: z.infer<typeof extendedSignupSchema>) {
     console.log("Form submitted:", data)
+  setIsLoading(true)
+ try {
   
-   const res = await  createAccountAction({fullName:data.fullName,password:data.password,email:data.email})
+    const res = await  createAccountAction({fullName:data.fullName,password:data.password,email:data.email})
    
    if (res.success) {
+     setIsLoading(false)
     router.push("/auth/signin")
    }
+   else{
+    setIsLoading(false)
+    console.log("error message",res.message);
+    
+   }
    
+ } catch (error) {
+  console.log(error);
+  setIsLoading(false)
+  
+ }
   }
 
   return (
@@ -132,7 +147,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"form">
         {/* Submit */}
         <Field>
           <Button type="submit" disabled={form.formState.isSubmitting}>
-            Create Account
+              {isLoading ?  <Loader2 className="animate-spin"/>  : "Create Account" }
           </Button>
         </Field>
 
