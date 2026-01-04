@@ -44,7 +44,7 @@ const HeroSection = () => {
         </section>
 
         <section data-aos="fade-left" className='flex items-center justify-center mdlg:w-2/4'>
-            <div className='relative lg:w-[400px] h-[400px] w-[300px] h-[350px] '>
+            <div className='relative lg:w-100  w-75 h-87.5 '>
                 <Image 
                 src={"/aurum-placeholder.png"} 
                 className=' h-full w-ful absolute'  

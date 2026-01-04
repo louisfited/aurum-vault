@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar/>
       <HeroSection/>
 <HowItWorks/>
-{/* <MetalWidget/> */}
+<MetalWidget/>
 <EdgeAgainstCurrency/>
 <BullionServices/>
 <WhyAu/>

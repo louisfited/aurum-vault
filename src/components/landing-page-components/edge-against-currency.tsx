@@ -5,7 +5,7 @@ const EdgeAgainstCurrency = () => {
     <div className="flex flex-col lg:flex-row gap-y-6 px-4 lg:gap-x-4 my-8">
 <section className="w-full lg:w-[50%] flex items-center lg:items-start justify-center lg:justify-evenly ">
 
-<div className="relative lg:w-[400px] lg:h-[400px] w-md:[300px] md:h-[300px] w-[200px] h-[200px]">
+<div className="relative lg:w-100 lg:h-100 w-md:[300px] md:h-75 w-50 h-50">
     <Image src={"/chart-one.svg"} 
     fill
     alt="chart-one"

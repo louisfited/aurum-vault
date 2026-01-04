@@ -40,9 +40,9 @@ const BullionServices = () => {
         <section className="flex flex-wrap items-center justify-center gap-4">
 {dataForServices.map((item,index)=>{
 
-    return <aside data-aos="zoom-in-up" key={index} className="lg:w-[30%] w-full bg-gray-one rounded-md px-2 pt-3  py-6 flex flex-col gap-y-2  text-sm">
+    return <aside data-aos="zoom-in-up" key={index} className="lg:w-[30%] w-full bg-card rounded-md px-2 pt-3  py-6 flex flex-col gap-y-2  text-sm">
         <div className="flex items-center gap-x-2">
-          <img className="w-[20px] h-[20px]"  src={"/bank-one.svg"}  alt="" />
+          <img className="w-5 h-5"  src={"/bank-one.svg"}  alt="" />
           <h1 className="text-md font-semibold">{item.title}</h1>
         </div>
         <div>
