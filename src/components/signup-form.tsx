@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,14 +10,52 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 import Link from "next/link"
+import { z } from "zod"
+import { signupSchema } from "@/libs/schemas/auth-schemas"
+import { createAccountAction } from "@/libs/actions/auth-actions"
+import { useRouter } from "next/navigation"
 
-export function SignupForm({
-  className,
-  ...props
-}: React.ComponentProps<"form">) {
+// Optional: If your signupSchema does not include confirmPassword, add it here:
+const extendedSignupSchema = signupSchema.extend({
+  confirmPassword: z.string().min(1, "Confirm your password"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords must match",
+  path: ["confirmPassword"],
+})
+
+export function SignupForm({ className, ...props }: React.ComponentProps<"form">) {
+
+  const router = useRouter()
+  const form = useForm<z.infer<typeof extendedSignupSchema>>({
+    resolver: zodResolver(extendedSignupSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  })
+
+ async function onSubmit(data: z.infer<typeof extendedSignupSchema>) {
+    console.log("Form submitted:", data)
+  
+   const res = await  createAccountAction({fullName:data.fullName,password:data.password,email:data.email})
+   
+   if (res.success) {
+    router.push("/auth/signin")
+   }
+   
+  }
+
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props} >
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Create your account</h1>
@@ -23,34 +63,84 @@ export function SignupForm({
             Fill in the form below to create your account
           </p>
         </div>
+
+        {/* Full Name */}
         <Field>
-          <FieldLabel htmlFor="name">Full Name</FieldLabel>
-          <Input id="name" type="text" placeholder="John Doe" required />
+          <FieldLabel htmlFor="fullName">Full Name</FieldLabel>
+          <Input
+            id="fullName"
+            type="text"
+            placeholder="John Doe"
+            {...form.register("fullName")}
+          />
+          {form.formState.errors.fullName && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.fullName.message}
+            </FieldDescription>
+          )}
         </Field>
+
+        {/* Email */}
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
-         
+          <Input
+            id="email"
+            type="email"
+            placeholder="m@example.com"
+            {...form.register("email")}
+          />
+          {form.formState.errors.email && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.email.message}
+            </FieldDescription>
+          )}
         </Field>
+
+        {/* Password */}
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
-          <Input id="password" type="password" required />
-          <FieldDescription>
-            Must be at least 8 characters long.
-          </FieldDescription>
+          <Input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            {...form.register("password")}
+          />
+         
+          {form.formState.errors.password && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.password.message}
+            </FieldDescription>
+          )}
         </Field>
+
+        {/* Confirm Password */}
         <Field>
-          <FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
-          <Input id="confirm-password" type="password" required />
-          <FieldDescription>Please confirm your password.</FieldDescription>
+          <FieldLabel htmlFor="confirmPassword">Confirm Password</FieldLabel>
+          <Input
+            id="confirmPassword"
+            type="password"
+            placeholder="••••••••"
+            {...form.register("confirmPassword")}
+          />
+          {form.formState.errors.confirmPassword && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.confirmPassword.message}
+            </FieldDescription>
+          )}
         </Field>
+
+        {/* Submit */}
         <Field>
-          <Button type="submit">Create Account</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            Create Account
+          </Button>
         </Field>
+
         <FieldSeparator>Or continue with</FieldSeparator>
+
+        {/* Google Sign Up */}
         <Field>
           <Button variant="outline" type="button">
-     
             Sign up with Google
           </Button>
           <FieldDescription className="px-6 text-center">

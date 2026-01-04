@@ -7,12 +7,12 @@ const Navbar = () => {
     <nav className='flex justify-between px-4 py-4'>
         <h1 className='font-semibold'>Aurum</h1>
         <div className='flex gap-x-2'>
-            <Button size={"sm"} variant={"outline"}>
-                <Link href={"/auth/signin"}>
+            <Button size={"sm"} variant={"outline"} >
+                <Link href={"/auth/signin"} >
                 Sign In
                 </Link>
             </Button>
-            <Button size={"sm"}>
+            <Button size={"sm"} asChild>
                 <Link href={"/auth/signup"}>
                 Sign Up
                 </Link>

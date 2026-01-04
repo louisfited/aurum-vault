@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,51 +10,104 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 import Link from "next/link"
+import { z } from "zod"
+import { loginSchema } from "@/libs/schemas/auth-schemas"
+import { loginAction } from "@/libs/actions/auth-actions"
+import { useRouter } from "next/navigation"
 
-export function SigninForm({
-  className,
-  ...props
-}: React.ComponentProps<"form">) {
+
+
+export function SigninForm({ className, ...props }: React.ComponentProps<"form">) {
+  const router = useRouter()
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+     
+      email: "",
+      password: "",
+    
+    },
+  })
+
+ async function onSubmit(data: z.infer<typeof loginSchema>) {
+    console.log("Form submitted:", data)
+  
+   const res = await  loginAction(data)
+   if (res.success) {
+    router.push("/")
+   }
+   
+  }
+
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="text-2xl font-bold">Create your account</h1>
           <p className="text-muted-foreground text-sm text-balance">
-            Enter your email below to login to your account
+            Fill in the form below to create your account
           </p>
         </div>
+
+
+
+        {/* Email */}
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input
+            id="email"
+            type="email"
+            placeholder="m@example.com"
+            {...form.register("email")}
+          />
+          {form.formState.errors.email && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.email.message}
+            </FieldDescription>
+          )}
         </Field>
+
+        {/* Password */}
         <Field>
-          <div className="flex items-center">
-            <FieldLabel htmlFor="password">Password</FieldLabel>
-            <a
-              href="#"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </a>
-          </div>
-          <Input id="password" type="password" required />
+          <FieldLabel htmlFor="password">Password</FieldLabel>
+          <Input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            {...form.register("password")}
+          />
+         
+          {form.formState.errors.password && (
+            <FieldDescription className="text-destructive">
+              {form.formState.errors.password.message}
+            </FieldDescription>
+          )}
         </Field>
+
+       
+        {/* Submit */}
         <Field>
-          <Button type="submit">Login</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            Login
+          </Button>
         </Field>
+
         <FieldSeparator>Or continue with</FieldSeparator>
+
+        {/* Google Sign Up */}
         <Field>
           <Button variant="outline" type="button">
-         
             Login with Google
           </Button>
-          <FieldDescription className="text-center">
-            Don&apos;t have an account?{" "}
-            <Link href="/auth/signup" className="underline underline-offset-4">
-              Sign up
-            </Link>
+          <FieldDescription className="px-6 text-center">
+            Already have an account? <Link href="/auth/signup">Sign up</Link>
           </FieldDescription>
         </Field>
       </FieldGroup>
