@@ -33,7 +33,7 @@ const HowItWorks = () => {
         <section className="flex lg:flex-row flex-col justify-between gap-y-6 lg:gap-y-0  px-4 overflow-y-hidden">
             {howItWorks.map((item,index)=>{
 
-                return  <aside data-aos-delay={index == 0 ? "0" : index == 1 ? "500" : "1000"} data-aos="fade-down" key={index} className="rounded-md px-4 lg:w-[30%] w-full shadow-xl  bg-gray-one py-4 hover-lift" >
+                return  <aside data-aos-delay={index == 0 ? "0" : index == 1 ? "500" : "1000"} data-aos="fade-down" key={index} className="rounded-md px-4 lg:w-[30%] w-full shadow-xl  bg-card py-4 hover-lift" >
 <div className="flex  items-center gap-x-4 ">
     <span>< item.icon  size={"20"}/></span>
     <h1 className="scroll-m-20 text-lg font-semibold tracking-tight">{item.title}</h1>
