@@ -74,7 +74,7 @@ const AppSidebar = () => {
           const supabase = createClient()
     const { data: { user }, error } = await supabase.auth.getUser()
     
-    setUserName(user?.user_metadata.fullName.split(" ")[0])
+    setUserName(user?.user_metadata.full_name.split(" ")[0] || user?.user_metadata.name.split(" ")[0])
     if (user) {
       console.log("Logged in as:", user)
     } else {
