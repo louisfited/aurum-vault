@@ -48,10 +48,7 @@ const WhyAu = () => {
     <header className="text-center py-8">
     <h1 className=" font-semibold text-3xl">Why AURUM</h1>
     <p className="text-sm lg:w-[50%] mx-auto">At AU, we make buying, selling, and storing precious metals simple, secure, and
-    cost-effective — here's what sets us apart.
-
-    why-nextrade-image
-    Ease of Use</p>
+    cost-effective — here's what sets us apart.</p>
     </header>
 
 
