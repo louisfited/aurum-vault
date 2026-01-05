@@ -62,7 +62,7 @@ const WhyAu = () => {
 
     return <div key={index} className='lg:w-[50%] w-full'>
         <header className='flex items-center gap-4'>
-            <span className='text-blue-700'><item.icon /></span>
+            <span className='text-[#92E3A9]'><item.icon /></span>
             <h1 className='text-lg font-semibold'>{item.title}</h1>
         </header>
         <div className='text-gray-700'>
