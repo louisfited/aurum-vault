@@ -57,6 +57,11 @@ const menu = [
     id:3,
     title:"Buy/Sell",
     subMenu:[{name:"Buy",icon:ArrowUpRight,link:"/"},{name:"Sell",icon:ArrowDownRight,link:"/"}]
+  },
+  {
+    id:3,
+    title:"Charts",
+    subMenu:[{name:"Gold",icon:ArrowUpRight,link:"/dashboard/charts/gold"},{name:"Silver",icon:ArrowDownRight,link:"/dashboard/charts/silver"}]
   }
 ]
 
@@ -95,7 +100,8 @@ const AppSidebar = () => {
   <SidebarMenuItem>
     <SidebarMenuButton>
       <Sun/>
-      <span>Aurum</span>
+      <img src="/logo-crop.jpg" className='h-7 w-48 object-contain' alt="logo" />
+      {/* <span>Aurum</span> */}
     </SidebarMenuButton>
   </SidebarMenuItem>
 </SidebarMenu>

@@ -46,7 +46,7 @@ const WhyAu = () => {
     <div className='px-4 my-8 '>
 
     <header className="text-center py-8">
-    <h1 className=" font-semibold text-3xl">Why AU</h1>
+    <h1 className=" font-semibold text-3xl">Why AURUM</h1>
     <p className="text-sm lg:w-[50%] mx-auto">At AU, we make buying, selling, and storing precious metals simple, secure, and
     cost-effective — here's what sets us apart.
 
@@ -73,10 +73,10 @@ const WhyAu = () => {
     </aside>
 
     {/* Second */}
-    <div className='lg:w-[40%] h-[200px] w-full relative'>
-        <Image src={"/question-mark.svg"}
+    <div className='lg:w-[40%] h-50 w-full relative'>
+        <Image src={"/whyaurum2.jpg"}
         fill
-        className='absolute w-full h-full'
+        className='absolute w-full h-full object-cover'
         alt="question-mark" />
     </div>
 </section>
