@@ -100,7 +100,7 @@ const AppSidebar = () => {
   <SidebarMenuItem>
     <SidebarMenuButton>
       <Sun/>
-      <img src="/logo-crop.jpg" className='h-7 w-48 object-contain' alt="logo" />
+      <Link href={"/"} ><img src="/logo-crop.jpg" className='h-7 w-48 object-contain' alt="logo" /></Link>
       {/* <span>Aurum</span> */}
     </SidebarMenuButton>
   </SidebarMenuItem>
