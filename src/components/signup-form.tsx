@@ -30,7 +30,7 @@ const extendedSignupSchema = signupSchema.extend({
 })
 
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 
 export function SignupForm({ className, ...props }: React.ComponentProps<"form">) {
@@ -71,6 +71,10 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"form">
   }
 
   const handleGoogleSignup = async()=>{
+    if (!siteUrl) {
+      alert("no url")
+      return
+    }
 const supabase =  createClient()
     supabase.auth.signInWithOAuth({
   provider: 'google',
