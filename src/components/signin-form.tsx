@@ -18,12 +18,12 @@ import { loginSchema } from "@/libs/schemas/auth-schemas"
 import { loginAction } from "@/libs/actions/auth-actions"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { Loader, Loader2, Loader2Icon, LoaderCircle, LoaderPinwheel } from "lucide-react"
+import { Loader, Loader2, } from "lucide-react"
 import { createClient } from "@/utils/supabase/client"
 
 
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export function SigninForm({ className, ...props }: React.ComponentProps<"form">) {
   const router = useRouter()
@@ -61,6 +61,10 @@ try {
 
 
     const handleGoogleSignin = async()=>{
+          if (!siteUrl) {
+      alert("no url")
+      return
+    }
   const supabase =  createClient()
       supabase.auth.signInWithOAuth({
     provider: 'google',
