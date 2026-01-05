@@ -47,12 +47,12 @@ const GoldChart: React.FC = () => {
   }, [currentTheme]);
 
   return (
-    /* THE FIX: 
-       1. We set a hard height here (h-[600px] or h-[80vh]).
-       2. We use flex-grow on the inner widget div.
-    */
     <div 
-      className="flex flex-col w-full h-[700px] border rounded-xl overflow-hidden bg-background shadow-sm" 
+      /* RESPONSIVE HEIGHT FIX:
+         h-[400px] is the height for mobile.
+         md:h-[700px] is the height for screens larger than 768px.
+      */
+      className="flex flex-col w-full h-[400px] md:h-[700px] border rounded-xl overflow-hidden bg-background shadow-sm" 
     >
       <div 
         id="tradingview_widget_wrapper"

@@ -46,8 +46,8 @@ const HeroSection = () => {
         <section data-aos="fade-left" className='flex items-center justify-center mdlg:w-2/4'>
             <div className='relative lg:w-100  w-75 h-87.5 '>
                 <Image 
-                src={"/aurum-placeholder.png"} 
-                className=' h-full w-ful absolute'  
+                src={"/temp-chart.jpg"} 
+                className=' h-full w-ful absolute object-contain'  
                 alt='aurum place holder'
                 // width={}
                 fill
