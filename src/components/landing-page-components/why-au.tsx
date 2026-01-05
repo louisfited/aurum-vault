@@ -65,7 +65,7 @@ const WhyAu = () => {
             <span className='text-[#92E3A9]'><item.icon /></span>
             <h1 className='text-lg font-semibold'>{item.title}</h1>
         </header>
-        <div className='text-gray-700'>
+        <div className=''>
             {item.description}
         </div>
     </div>
