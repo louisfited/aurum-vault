@@ -62,7 +62,7 @@ const WhyAu = () => {
 
     return <div key={index} className='lg:w-[50%] w-full'>
         <header className='flex items-center gap-4'>
-            <span className='text-blue-700'><item.icon /></span>
+            <span className='text-[#92E3A9]'><item.icon /></span>
             <h1 className='text-lg font-semibold'>{item.title}</h1>
         </header>
         <div className='text-gray-700'>
@@ -73,10 +73,10 @@ const WhyAu = () => {
     </aside>
 
     {/* Second */}
-    <div className='lg:w-[40%] h-50 w-full relative'>
-        <Image src={"/whyaurum2.jpg"}
+    <div className='lg:w-[40%] h-100 w-full relative'>
+        <Image src={"/Questions-bro.svg"}
         fill
-        className='absolute w-full h-full object-cover'
+        className='absolute w-full h-full object-fit'
         alt="question-mark" />
     </div>
 </section>
