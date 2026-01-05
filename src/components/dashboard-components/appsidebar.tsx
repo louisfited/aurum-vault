@@ -9,7 +9,8 @@ import { Collapsible, CollapsibleContent } from '../ui/collapsible'
 import { CollapsibleTrigger } from '@radix-ui/react-collapsible'
 import { signout } from '@/libs/actions/auth-actions'
 import { useRouter } from 'next/navigation'
-import { link } from 'fs'
+import { useEffect, useState } from 'react'
+import { createClient } from '@/utils/supabase/client'
 
 
 const items = [
@@ -58,9 +59,33 @@ const menu = [
     subMenu:[{name:"Buy",icon:ArrowUpRight,link:"/"},{name:"Sell",icon:ArrowDownRight,link:"/"}]
   }
 ]
+
+
+
 const AppSidebar = () => {
 
   const router = useRouter()
+  const [userName,setUserName] = useState<string | null>(null)
+
+
+
+
+         const checkUser = async () => {
+          const supabase = createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    
+    setUserName(user?.user_metadata.fullName.split(" ")[0])
+    if (user) {
+      console.log("Logged in as:", user)
+    } else {
+      console.log("No user is signed in")
+    }
+  }
+  
+  
+  useEffect(()=>{
+  checkUser()
+  },[])
   return (
     
 
@@ -120,7 +145,7 @@ return <SidebarMenuItem key={item.title}>
       <SidebarMenu>
      {item.subMenu.map((subItem,index)=>{
 
-      return    <SidebarMenuItem>
+      return    <SidebarMenuItem key={index}>
       <SidebarMenuButton asChild>
         <Link href={subItem.link}>
           <subItem.icon />
@@ -147,7 +172,7 @@ return <SidebarMenuItem key={item.title}>
 <SidebarMenu>
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <SidebarMenuButton className='flex justify-between'> <User2 className='h-[1.2rem w-[1.2rem]'/> John<ChevronUp className='ml-auto'/></SidebarMenuButton>
+      <SidebarMenuButton className='flex justify-between'> <User2 className='h-[1.2rem w-[1.2rem]'/> {userName ? userName  : "Me"}<ChevronUp className='ml-auto'/></SidebarMenuButton>
     </DropdownMenuTrigger>
 
     <DropdownMenuContent  className="text-sm border border-border rounded-md shadow-md w-48 flex flex-col gap-y-2 px-2 " align='end' >

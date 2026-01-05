@@ -19,14 +19,19 @@ import { createAccountAction } from "@/libs/actions/auth-actions"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
 import { useState } from "react"
+import { createClient } from "@/utils/supabase/client"
 
-// Optional: If your signupSchema does not include confirmPassword, add it here:
+
 const extendedSignupSchema = signupSchema.extend({
   confirmPassword: z.string().min(1, "Confirm your password"),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords must match",
   path: ["confirmPassword"],
 })
+
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
 
 export function SignupForm({ className, ...props }: React.ComponentProps<"form">) {
   const [isLoading,setIsLoading] =useState<boolean>(false)
@@ -63,6 +68,16 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"form">
   setIsLoading(false)
   
  }
+  }
+
+  const handleGoogleSignup = async()=>{
+const supabase =  createClient()
+    supabase.auth.signInWithOAuth({
+  provider: 'google',
+  options:{
+    redirectTo: `${siteUrl}/dashboard/balance`
+  }
+})
   }
 
   return (
@@ -155,7 +170,8 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"form">
 
         {/* Google Sign Up */}
         <Field>
-          <Button variant="outline" type="button">
+          <Button
+          onClick={handleGoogleSignup} variant="outline" type="button">
             Sign up with Google
           </Button>
           <FieldDescription className="px-6 text-center">

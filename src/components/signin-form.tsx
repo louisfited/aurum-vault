@@ -19,8 +19,11 @@ import { loginAction } from "@/libs/actions/auth-actions"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Loader, Loader2, Loader2Icon, LoaderCircle, LoaderPinwheel } from "lucide-react"
+import { createClient } from "@/utils/supabase/client"
 
 
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export function SigninForm({ className, ...props }: React.ComponentProps<"form">) {
   const router = useRouter()
@@ -56,6 +59,16 @@ try {
   }
   }
 
+
+    const handleGoogleSignin = async()=>{
+  const supabase =  createClient()
+      supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options:{
+      redirectTo: `${siteUrl}/dashboard/balance`
+    }
+  })
+    }
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
@@ -119,7 +132,7 @@ try {
 
         {/* Google Sign Up */}
         <Field>
-          <Button variant="outline" type="button">
+          <Button onClick={handleGoogleSignin} variant="outline" type="button">
             Login with Google
           </Button>
           <FieldDescription className="px-6 text-center">

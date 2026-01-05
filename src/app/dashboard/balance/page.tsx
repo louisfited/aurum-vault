@@ -1,7 +1,8 @@
 "use client"
 import BuySellWizard from '@/components/buy-sell-wizard'
+import { createClient } from '@/utils/supabase/client'
 import { ArrowRight, BadgeQuestionMark } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
@@ -42,6 +43,10 @@ const headingClass = "py-3 bg-card px-2"
 const Page = () => {
 
        const [showItem,setShowItem] = useState("")
+
+
+
+
   return (
        <div>
 
@@ -246,7 +251,7 @@ const Page = () => {
     {currencyData.map((item,index)=>{
 
 
-     return ( <div className='px-2 py-2'>
+     return ( <div key={index} className='px-2 py-2'>
 
         <aside
         onClick={()=>{
