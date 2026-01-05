@@ -73,10 +73,10 @@ const WhyAu = () => {
     </aside>
 
     {/* Second */}
-    <div className='lg:w-[40%] h-50 w-full relative'>
-        <Image src={"/whyaurum2.jpg"}
+    <div className='lg:w-[40%] h-100 w-full relative'>
+        <Image src={"/Questions-bro.svg"}
         fill
-        className='absolute w-full h-full object-cover'
+        className='absolute w-full h-full object-fit'
         alt="question-mark" />
     </div>
 </section>
