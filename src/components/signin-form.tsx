@@ -65,6 +65,8 @@ try {
       alert("no url")
       return
     }
+    console.log(siteUrl);
+    
   const supabase =  createClient()
       supabase.auth.signInWithOAuth({
     provider: 'google',
