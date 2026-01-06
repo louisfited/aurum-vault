@@ -51,7 +51,7 @@ const menu = [
   {
     id:2,
     title:"History",
-    subMenu:[{name:"Orders",icon:ClipboardList,link:"/"},{name:"Deposits",icon:Receipt,link:"/"},{name:"Withdrawals",icon:ArrowUpFromLine,link:"/"}]
+    subMenu:[{name:"Orders",icon:ClipboardList,link:"/dashboard/history/orders"},{name:"Deposits",icon:Receipt,link:"/dashboard/history/deposits"},{name:"Withdrawals",icon:ArrowUpFromLine,link:"/dashboard/history/withdrawals"}]
   },
   {
     id:3,

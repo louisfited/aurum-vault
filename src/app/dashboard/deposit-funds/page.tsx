@@ -112,11 +112,11 @@ const Page = () => {
 <Accordion type="single" key={index + 1} collapsible>
   <AccordionItem value="item-1">
     <AccordionTrigger className='font-medium'>{item.title}</AccordionTrigger>
-   {item.options.map((subItem,index)=>{
+   {item.options.map((subItem,subIndex)=>{
        
        return (
            
-           <AccordionContent>
+           <AccordionContent key={subIndex}>
 <p className=''>{subItem.title}</p>
 <h1 className='font-semibold'>{subItem.dest}</h1>
 </AccordionContent>
