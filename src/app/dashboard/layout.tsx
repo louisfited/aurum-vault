@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     return (
     
       
-            <div className="flex w-full">
+            <div className="flex w-full ">
 
           <AppSidebar/>
           <main className=" h-screen w-full  ">
