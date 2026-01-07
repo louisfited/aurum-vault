@@ -7,20 +7,20 @@ const BuySellWizard = () => {
   const [actionBtn, setActionBtn] = useState<"Sell" | "Buy">("Sell");
 
   return (
-    <div className="h-full w-full rounded-lg ">
+    <div className="h-max w-full rounded-lg border-border rounded-lg border-2 p-2">
       {/* <h1>Buy Sell Wizard</h1> */}
 
       <section>
-        <header className="flex justify-center">
+        <header className="flex justify-center gap-4">
           <Button
             onClick={() => setActionBtn("Buy")}
-            className="cursor-pointer"
+            className="cursor-pointer w-2/5 bg-green-600"
           >
             Buy
           </Button>
           <Button
             onClick={() => setActionBtn("Sell")}
-            className="cursor-pointer"
+            className="cursor-pointer w-2/5 bg-red-500"
           >
             Sell
           </Button>

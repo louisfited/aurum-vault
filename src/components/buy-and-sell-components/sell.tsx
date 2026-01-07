@@ -63,10 +63,10 @@ const Sell = () => {
   }
 
   return (
-    <div className="py-4">
-      <header>
-        <h1 className="text-lg font-semibold">Offer Details</h1>
-        <p>Enter Your Order Below</p>
+    <div className="lg:py-0 py-8">
+      <header className="mb-8">
+        <h1 className="text-lg font-semibold ">Offer Details</h1>
+        <p className="text-sm">Enter Your Order Below</p>
       </header>
 
       <Form {...form}>
@@ -155,7 +155,7 @@ const Sell = () => {
                             field.onChange((Number(field.value) ?? 0) + 1);
                           }}
                           type="button"
-                          className="h-2/4 w-5 rounded-t-md  bg-primary text-black focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5 rounded-t-md text-background bg-primary focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           +
                         </button>
@@ -164,7 +164,7 @@ const Sell = () => {
                             field.onChange((Number(field.value) ?? 0) - 1);
                           }}
                           type="button"
-                          className="h-2/4 w-5  bg-primary text-black rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5  bg-primary text-background rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           -
                         </button>
@@ -202,7 +202,7 @@ const Sell = () => {
                             field.onChange((field.value ?? 0) + 0.001);
                           }}
                           type="button"
-                          className="h-2/4 w-5 rounded-t-md  bg-primary text-black focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5 rounded-t-md text-background bg-primary focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           +
                         </button>
@@ -214,7 +214,7 @@ const Sell = () => {
                             field.onChange((field.value ?? 0) - 0.001);
                           }}
                           type="button"
-                          className="h-2/4 w-5  bg-primary text-black rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5  bg-primary text-background rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           -
                         </button>
@@ -254,7 +254,7 @@ const Sell = () => {
                             field.onChange((field.value ?? 0) + 0.01);
                           }}
                           type="button"
-                          className="h-2/4 w-5 rounded-t-md  bg-primary text-black focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5 rounded-t-md text-background bg-primary  focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           +
                         </button>
@@ -266,7 +266,7 @@ const Sell = () => {
                             field.onChange((field.value ?? 0) - 0.01);
                           }}
                           type="button"
-                          className="h-2/4 w-5  bg-primary text-black rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
+                          className="h-2/4 w-5  bg-primary text-background rounded-b-md focus:outline-2 active:outline-2 font-bold flex items-center justify-center"
                         >
                           -
                         </button>
