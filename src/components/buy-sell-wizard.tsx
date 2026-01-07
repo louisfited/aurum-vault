@@ -14,13 +14,17 @@ const BuySellWizard = () => {
         <header className="flex justify-center gap-4">
           <Button
             onClick={() => setActionBtn("Buy")}
-            className="cursor-pointer w-2/5 bg-green-600"
+            className={`cursor-pointer w-2/5 border-2 ${
+              actionBtn == "Buy" ? "border-green-500" : ""
+            }  bg-background text-foreground hover:bg-gray-400`}
           >
             Buy
           </Button>
           <Button
             onClick={() => setActionBtn("Sell")}
-            className="cursor-pointer w-2/5 bg-red-500"
+            className={`cursor-pointer w-2/5 border-2 ${
+              actionBtn == "Sell" ? "border-yellow-500" : ""
+            } bg-background text-foreground  hover:bg-gray-400`}
           >
             Sell
           </Button>
