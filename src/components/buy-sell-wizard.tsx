@@ -7,7 +7,7 @@ const BuySellWizard = () => {
   const [actionBtn, setActionBtn] = useState<"Sell" | "Buy">("Sell");
 
   return (
-    <div className="h-max w-full rounded-lg border-border rounded-lg border-2 p-2">
+    <div className="h-max w-full  border-border rounded-lg border-2 p-2">
       {/* <h1>Buy Sell Wizard</h1> */}
 
       <section>
@@ -16,7 +16,7 @@ const BuySellWizard = () => {
             onClick={() => setActionBtn("Buy")}
             className={`cursor-pointer w-2/5 border-2 ${
               actionBtn == "Buy" ? "border-green-500" : ""
-            }  bg-background text-foreground hover:bg-gray-400`}
+            }  bg-background text-foreground dark:hover:bg-gray-800 hover:bg-gray-300`}
           >
             Buy
           </Button>
@@ -24,7 +24,7 @@ const BuySellWizard = () => {
             onClick={() => setActionBtn("Sell")}
             className={`cursor-pointer w-2/5 border-2 ${
               actionBtn == "Sell" ? "border-yellow-500" : ""
-            } bg-background text-foreground  hover:bg-gray-400`}
+            } bg-background text-foreground  dark:hover:bg-gray-800 hover:bg-gray-300`}
           >
             Sell
           </Button>

@@ -25,6 +25,8 @@ import {
   durationEnum,
 } from "@/utils/buy-and-sell-utils";
 import { Button } from "../ui/button";
+import { useEffect } from "react";
+import { currencyFormatter } from "@/utils/currencyFormatter";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -62,6 +64,9 @@ const Sell = () => {
     console.log(values);
   }
 
+  // useEffect(() => {
+  //   console.log(form.watch("pricePerKg"));
+  // }, [form.watch("pricePerKg")]);
   return (
     <div className="lg:py-0 py-8">
       <header className="mb-8">
@@ -148,6 +153,18 @@ const Sell = () => {
                         type="number"
                         {...field}
                         value={field.value ?? 0}
+                        // update order values on leave
+                        onBlur={(e) => {
+                          field.onBlur();
+                          if (!e.target.value) {
+                            return;
+                          }
+                          const quantityKg = form.getValues("quantityKg");
+                          const multiply: number =
+                            Number(quantityKg) * Number(e.target.value);
+
+                          form.setValue("orderValue", multiply);
+                        }}
                       />
                       <div className="absolute top-0 right-0 flex h-full flex-col overflow-hidden">
                         <button
@@ -192,9 +209,17 @@ const Sell = () => {
                         {...field}
                         value={
                           field.value !== undefined
-                            ? field.value.toFixed(3)
+                            ? Number(field?.value).toFixed(3)
                             : "0.000"
                         }
+                        onBlur={(e) => {
+                          field.onBlur();
+                          const pricePerKg = form.getValues("pricePerKg");
+                          form.setValue(
+                            "orderValue",
+                            pricePerKg * Number(e.target.value)
+                          );
+                        }}
                       />
                       <div className="absolute top-0 right-0 flex h-full flex-col overflow-hidden">
                         <button
@@ -244,7 +269,7 @@ const Sell = () => {
                         {...field}
                         value={
                           field.value !== undefined
-                            ? field.value.toFixed(2)
+                            ? Number(field.value.toFixed(2))
                             : "0.00"
                         }
                       />
@@ -313,7 +338,7 @@ const Sell = () => {
             <Button type="button" className="rounded-full w-2/4 bg-gray-500">
               Reset
             </Button>
-            <Button type="button" className="rounded-full w-2/4 bg-green-400">
+            <Button type="button" className="rounded-full w-2/4 bg-yellow-500">
               Sell/Offer
             </Button>
           </div>
