@@ -29,7 +29,7 @@ const Page = () => {
     });
   }, []);
   return (
-    <div className=" text-sm">
+    <div className="">
       {/* Account Info */}
       <section className=" pt-2   rounded-lg bg-card">
         <div className="flex justify-between text-xl font-semibold py-3 px-4">
