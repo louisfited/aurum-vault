@@ -185,13 +185,13 @@ const Page = () => {
 
                             <SelectContent>
                               <SelectItem value="buy">
-                                Gold In Londom
+                                Gold In London
                               </SelectItem>
                               <SelectItem value="sell">
                                 Gold In Zurich
                               </SelectItem>
                               <SelectItem value="sell">
-                                Silver In Londom
+                                Silver In London
                               </SelectItem>
                             </SelectContent>
                           </Select>
