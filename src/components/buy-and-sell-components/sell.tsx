@@ -338,7 +338,7 @@ const Sell = () => {
             <Button type="button" className="rounded-full w-2/4 bg-gray-500">
               Reset
             </Button>
-            <Button type="button" className="rounded-full w-2/4 bg-yellow-500">
+            <Button type="button" className="rounded-full w-2/4 bg-red-500">
               Sell/Offer
             </Button>
           </div>
