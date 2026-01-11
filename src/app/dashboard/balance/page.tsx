@@ -15,21 +15,21 @@ const silverData = [
 
 const currencyData = [
   {
-    name: "Silver",
+    name: "Dollars",
     total: "$1.00",
     valuation: "$1.00",
     buyAtBestPrice: [],
   },
   {
-    name: "Gold",
+    name: "Pounds",
     total: "$1.00",
-    valuation: "$1.00",
+    valuation: "$1.34",
     buyAtBestPrice: [],
   },
   {
-    name: "Platinum",
+    name: "Euros",
     total: "$1.00",
-    valuation: "$1.00",
+    valuation: "$1.16",
     buyAtBestPrice: [],
   },
 ];
@@ -70,21 +70,21 @@ const Page = () => {
               <aside className="flex justify-between border-t-4  p-2">
                 <span>Bullion</span>
                 <div className="w-[25%]  flex justify-between">
-                  <span>$7.36</span>
+                  <span>$5.00</span>
                 </div>
               </aside>
               <aside className="flex justify-between border-t-2  p-2">
                 <span>Currency</span>
                 <div className="w-[25%]  flex justify-between">
-                  <span>$7.36</span>
+                  <span>$5.00</span>
                   {/* <span>$7.36</span> */}
                 </div>
               </aside>
               <aside className="flex justify-between border-t-2  p-2 font-semibold">
                 <span className="">Total </span>
                 <div className="w-[25%]  flex justify-between">
-                  <span>$10.84</span>
-                  <span className=" rounded-lg px-2 font-light lg:block hidden">
+                  <span>$10.00</span>
+                  <span className=" rounded-lg px-2 font-light lg:block hidden text-white bg-gray-600 text-sm">
                     Set Currency
                   </span>
                 </div>
@@ -103,10 +103,10 @@ const Page = () => {
 
           <div className="my-8 flex flex-col  rounded-t-lg overflow-hidden">
             <section
-              className={`flex justify-between font-bold ${headingClass}`}
+              className={`flex justify-between font-semibold ${headingClass}`}
             >
-              <span>Silver</span>
-              <div className="lg:flex justify-between w-[30%] hidden ">
+              <div>Silver</div>
+              <div className="lg:flex justify-between w-[40%]  hidden ">
                 <span>Total</span>
                 <span>Valuation</span>
                 <span>Sell at best price</span>
@@ -178,7 +178,7 @@ const Page = () => {
                     className="flex justify-between border-t-2 py-2 px-2   "
                   >
                     <span>{item.name}</span>
-                    <div className="w-[30%] flex justify-between ">
+                    <div className="w-[40%] flex justify-between ">
                       <span className="w-[30%]">{item.total}</span>
                       <span className=" w-[30%]">{item.valuation}</span>
 
@@ -217,7 +217,7 @@ const Page = () => {
             {/* total for destop */}
             <section className="lg:flex justify-between font-bold border-t-2 py-2 px-2 hidden">
               <span>Total</span>
-              <div className="flex justify-between w-[30%]  ">
+              <div className="flex justify-between w-[40%]  ">
                 <span className="w-[30%]">0.004 kg</span>
                 <span className="w-[30%]">$7.38</span>
                 <span className="w-[30%]">.</span>
@@ -229,13 +229,13 @@ const Page = () => {
 
           <div className="my-8 flex flex-col rounded-t-lg overflow-hidden">
             <section
-              className={`flex justify-between font-bold ${headingClass}`}
+              className={`flex justify-between font-semibold ${headingClass}`}
             >
-              <span>Currency</span>
-              <div className="lg:flex justify-between w-[30%] hidden ">
+              <div>Currency</div>
+              <div className="lg:flex justify-between w-[40%] hidden ">
                 <span>Total</span>
                 <span>Valuation</span>
-                <span>Sell at best price</span>
+                <span>Buy at best price</span>
               </div>
             </section>
             {/* data */}
@@ -302,8 +302,8 @@ const Page = () => {
                     key={index + 1}
                     className="flex justify-between border-t-2 py-2 px-2   "
                   >
-                    <span>{item.name}</span>
-                    <div className="w-[30%] flex justify-between ">
+                    <div>{item.name}</div>
+                    <div className="w-[40%] flex justify-between ">
                       <span className="w-[30%]">{item.total}</span>
                       <span className=" w-[30%]">{item.valuation}</span>
 
@@ -341,9 +341,9 @@ const Page = () => {
             {/* total for destop */}
             <section className="lg:flex justify-between font-bold border-t-2 py-2 px-2 hidden">
               <span>Total</span>
-              <div className="flex justify-between w-[30%]  ">
-                <span className="w-[30%]">0.004 kg</span>
-                <span className="w-[30%]">$7.38</span>
+              <div className="flex justify-between w-[40%]  ">
+                <span className="w-[30%]"></span>
+                <span className="w-[30%]">$3.50</span>
                 <span className="w-[30%]">.</span>
               </div>
             </section>
@@ -352,7 +352,7 @@ const Page = () => {
 
         {/* buy sell wizard */}
         <>
-          <div className="lg:w-[30%] h-[200px] mt-6 lg:sticky top-6">
+          <div className="lg:w-[30%] h-50 mt-6 lg:sticky top-6">
             <BuySellWizard />
           </div>
         </>

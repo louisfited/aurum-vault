@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
+import { ColumnDef } from "@tanstack/react-table";
 
 export type typeDeposit = {
   id: string;
-  date: string; 
+  date: string;
   amount: number;
-  currency: "NGN";
+  currency: "EUR" | "GBP" | "USD";
   status: string; // keep as string to match withdrawals
   method: string;
   account: string;
   reference: string;
   fee: number;
-  reason?: string; 
+  reason?: string;
 };
 
 export const depositColumns: ColumnDef<typeDeposit>[] = [
@@ -53,7 +53,9 @@ export const depositColumns: ColumnDef<typeDeposit>[] = [
           : "bg-gray-100 text-gray-800";
 
       return (
-        <span className={`px-2 py-1 rounded-full text-sm font-medium ${bgColor}`}>
+        <span
+          className={`px-2 py-1 rounded-full text-sm font-medium ${bgColor}`}
+        >
           {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
       );
@@ -75,5 +77,4 @@ export const depositColumns: ColumnDef<typeDeposit>[] = [
     accessorKey: "fee",
     header: "Fee",
   },
-
 ];
