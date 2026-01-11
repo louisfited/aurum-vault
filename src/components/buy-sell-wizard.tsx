@@ -23,7 +23,7 @@ const BuySellWizard = () => {
           <Button
             onClick={() => setActionBtn("Sell")}
             className={`cursor-pointer w-2/5 border-2 ${
-              actionBtn == "Sell" ? "border-yellow-500" : ""
+              actionBtn == "Sell" ? "border-red-500" : ""
             } bg-background text-foreground  dark:hover:bg-gray-800 hover:bg-gray-300`}
           >
             Sell
