@@ -1,340 +1,44 @@
 import { typeDeposit } from "@/app/dashboard/history/deposits/deposits-column";
 
-export const deposits:typeDeposit[] = [
-  {
-    id: "dp_001",
-    date: "2026-01-01T09:15:00Z",
-    amount: 15000,
-    currency: "NGN",
-    status: "completed",
-    method: "Bank Transfer",
-    account: "GTBank •••• 2145",
-    reference: "DEP-4F7K2",
-    fee: 50
-  },
-  {
-    id: "dp_002",
-    date: "2026-01-02T14:45:00Z",
-    amount: 5000,
-    currency: "NGN",
-    status: "pending",
-    method: "USSD",
-    account: "Access Bank •••• 8891",
-    reference: "DEP-9PLD1",
-    fee: 0
-  },
-  {
-    id: "dp_003",
-    date: "2026-01-03T11:30:00Z",
-    amount: 25000,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "UBA •••• 1029",
-    reference: "DEP-1MD88",
-    fee: 100
-  },
-  {
-    id: "dp_004",
-    date: "2026-01-04T08:20:00Z",
-    amount: 10000,
-    currency: "NGN",
-    status: "failed",
-    method: "Bank Transfer",
-    account: "Zenith Bank •••• 3344",
-    reference: "DEP-2ZX99",
-    fee: 0,
- 
-  },
-  {
-    id: "dp_005",
-    date: "2026-01-04T15:50:00Z",
-    amount: 18000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "First Bank •••• 1122",
-    reference: "DEP-5FB21",
-    fee: 50
-  },
-  {
-    id: "dp_006",
-    date: "2026-01-05T10:30:00Z",
-    amount: 22000,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "GTBank •••• 7788",
-    reference: "DEP-6GT77",
-    fee: 100
-  },
-  {
-    id: "dp_007",
-    date: "2026-01-05T16:15:00Z",
-    amount: 12000,
-    currency: "NGN",
-    status: "pending",
-    method: "Bank Transfer",
-    account: "Access Bank •••• 5566",
-    reference: "DEP-7AC44",
-    fee: 0
-  },
-  {
-    id: "dp_008",
-    date: "2026-01-06T09:50:00Z",
-    amount: 30000,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "UBA •••• 9911",
-    reference: "DEP-8UB34",
-    fee: 100
-  },
-  {
-    id: "dp_009",
-    date: "2026-01-06T14:10:00Z",
-    amount: 9500,
-    currency: "NGN",
-    status: "failed",
-    method: "USSD",
-    account: "Zenith Bank •••• 6677",
-    reference: "DEP-9ZX55",
-    fee: 0,
+export const deposits: typeDeposit[] = [
+  { id: "dp_001", date: "2026-01-01T09:15:00Z", amount: 15000, currency: "USD", status: "completed", method: "Bank Transfer", account: "GTBank •••• 2145", reference: "DEP-4F7K2", fee: 50 },
+  { id: "dp_002", date: "2026-01-02T14:45:00Z", amount: 5000, currency: "EUR", status: "pending", method: "USSD", account: "Access Bank •••• 8891", reference: "DEP-9PLD1", fee: 0 },
+  { id: "dp_003", date: "2026-01-03T11:30:00Z", amount: 25000, currency: "GBP", status: "completed", method: "Card", account: "UBA •••• 1029", reference: "DEP-1MD88", fee: 100 },
 
-  },
-  {
-    id: "dp_010",
-    date: "2026-01-07T12:05:00Z",
-    amount: 7000,
-    currency: "NGN",
-    status: "completed",
-    method: "Bank Transfer",
-    account: "First Bank •••• 2233",
-    reference: "DEP-10FB88",
-    fee: 50
-  },
-  {
-    id: "dp_011",
-    date: "2026-01-07T15:45:00Z",
-    amount: 16000,
-    currency: "NGN",
-    status: "pending",
-    method: "Card",
-    account: "GTBank •••• 4455",
-    reference: "DEP-11GT22",
-    fee: 0
-  },
-  {
-    id: "dp_012",
-    date: "2026-01-08T08:25:00Z",
-    amount: 8000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "Access Bank •••• 8899",
-    reference: "DEP-12AC33",
-    fee: 50
-  },
-  {
-    id: "dp_013",
-    date: "2026-01-08T13:50:00Z",
-    amount: 25000,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "UBA •••• 1100",
-    reference: "DEP-13UB44",
-    fee: 100
-  },
-  {
-    id: "dp_014",
-    date: "2026-01-09T09:10:00Z",
-    amount: 14500,
-    currency: "NGN",
-    status: "failed",
-    method: "Bank Transfer",
-    account: "Zenith Bank •••• 3322",
-    reference: "DEP-14ZX66",
-    fee: 0,
-  
-  },
-  {
-    id: "dp_015",
-    date: "2026-01-09T14:30:00Z",
-    amount: 12000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "First Bank •••• 5566",
-    reference: "DEP-15FB77",
-    fee: 50
-  },
-  {
-    id: "dp_016",
-    date: "2026-01-10T11:05:00Z",
-    amount: 23000,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "GTBank •••• 9988",
-    reference: "DEP-16GT88",
-    fee: 100
-  },
-  {
-    id: "dp_017",
-    date: "2026-01-10T15:15:00Z",
-    amount: 9500,
-    currency: "NGN",
-    status: "pending",
-    method: "Bank Transfer",
-    account: "Access Bank •••• 3344",
-    reference: "DEP-17AC99",
-    fee: 0
-  },
-  {
-    id: "dp_018",
-    date: "2026-01-11T09:50:00Z",
-    amount: 20000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "UBA •••• 6677",
-    reference: "DEP-18UB11",
-    fee: 100
-  },
-  {
-    id: "dp_019",
-    date: "2026-01-11T14:20:00Z",
-    amount: 12500,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "Zenith Bank •••• 2244",
-    reference: "DEP-19ZX22",
-    fee: 50
-  },
-  {
-    id: "dp_020",
-    date: "2026-01-12T10:10:00Z",
-    amount: 7000,
-    currency: "NGN",
-    status: "failed",
-    method: "USSD",
-    account: "First Bank •••• 7788",
-    reference: "DEP-20FB33",
-    fee: 0,
+  { id: "dp_004", date: "2026-01-04T08:20:00Z", amount: 10000, currency: "USD", status: "failed", method: "Bank Transfer", account: "Zenith Bank •••• 3344", reference: "DEP-2ZX99", fee: 0 },
+  { id: "dp_005", date: "2026-01-04T15:50:00Z", amount: 18000, currency: "EUR", status: "completed", method: "USSD", account: "First Bank •••• 1122", reference: "DEP-5FB21", fee: 50 },
+  { id: "dp_006", date: "2026-01-05T10:30:00Z", amount: 22000, currency: "GBP", status: "completed", method: "Card", account: "GTBank •••• 7788", reference: "DEP-6GT77", fee: 100 },
 
-  },
-  {
-    id: "dp_021",
-    date: "2026-01-12T13:30:00Z",
-    amount: 25000,
-    currency: "NGN",
-    status: "completed",
-    method: "Bank Transfer",
-    account: "GTBank •••• 1122",
-    reference: "DEP-21GT44",
-    fee: 100
-  },
-  {
-    id: "dp_022",
-    date: "2026-01-13T16:40:00Z",
-    amount: 9000,
-    currency: "NGN",
-    status: "pending",
-    method: "Card",
-    account: "Access Bank •••• 5566",
-    reference: "DEP-22AC55",
-    fee: 0
-  },
-  {
-    id: "dp_023",
-    date: "2026-01-14T11:25:00Z",
-    amount: 5000,
-    currency: "NGN",
-    status: "failed",
-    method: "Bank Transfer",
-    account: "UBA •••• 8899",
-    reference: "DEP-23UB66",
-    fee: 0,
+  { id: "dp_007", date: "2026-01-05T16:15:00Z", amount: 12000, currency: "USD", status: "pending", method: "Bank Transfer", account: "Access Bank •••• 5566", reference: "DEP-7AC44", fee: 0 },
+  { id: "dp_008", date: "2026-01-06T09:50:00Z", amount: 30000, currency: "EUR", status: "completed", method: "Card", account: "UBA •••• 9911", reference: "DEP-8UB34", fee: 100 },
+  { id: "dp_009", date: "2026-01-06T14:10:00Z", amount: 9500, currency: "GBP", status: "failed", method: "USSD", account: "Zenith Bank •••• 6677", reference: "DEP-9ZX55", fee: 0 },
 
-  },
-  {
-    id: "dp_024",
-    date: "2026-01-14T09:40:00Z",
-    amount: 18000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "Zenith Bank •••• 9900",
-    reference: "DEP-24ZX77",
-    fee: 50
-  },
-  {
-    id: "dp_025",
-    date: "2026-01-15T15:55:00Z",
-    amount: 10500,
-    currency: "NGN",
-    status: "pending",
-    method: "Card",
-    account: "First Bank •••• 2233",
-    reference: "DEP-25FB88",
-    fee: 0
-  },
-  {
-    id: "dp_026",
-    date: "2026-01-16T12:15:00Z",
-    amount: 8000,
-    currency: "NGN",
-    status: "completed",
-    method: "Bank Transfer",
-    account: "GTBank •••• 3344",
-    reference: "DEP-26GT99",
-    fee: 100
-  },
-  {
-    id: "dp_027",
-    date: "2026-01-16T16:40:00Z",
-    amount: 4500,
-    currency: "NGN",
-    status: "failed",
-    method: "USSD",
-    account: "Access Bank •••• 6677",
-    reference: "DEP-27AC11",
-    fee: 0,
+  { id: "dp_010", date: "2026-01-07T12:05:00Z", amount: 7000, currency: "USD", status: "completed", method: "Bank Transfer", account: "First Bank •••• 2233", reference: "DEP-10FB88", fee: 50 },
+  { id: "dp_011", date: "2026-01-07T15:45:00Z", amount: 16000, currency: "EUR", status: "pending", method: "Card", account: "GTBank •••• 4455", reference: "DEP-11GT22", fee: 0 },
+  { id: "dp_012", date: "2026-01-08T08:25:00Z", amount: 8000, currency: "GBP", status: "completed", method: "USSD", account: "Access Bank •••• 8899", reference: "DEP-12AC33", fee: 50 },
 
-  },
-  {
-    id: "dp_028",
-    date: "2026-01-17T09:30:00Z",
-    amount: 19500,
-    currency: "NGN",
-    status: "completed",
-    method: "Card",
-    account: "UBA •••• 2233",
-    reference: "DEP-28UB22",
-    fee: 100
-  },
-  {
-    id: "dp_029",
-    date: "2026-01-17T14:50:00Z",
-    amount: 12500,
-    currency: "NGN",
-    status: "pending",
-    method: "Bank Transfer",
-    account: "Zenith Bank •••• 4455",
-    reference: "DEP-29ZX33",
-    fee: 0
-  },
-  {
-    id: "dp_030",
-    date: "2026-01-18T11:10:00Z",
-    amount: 7000,
-    currency: "NGN",
-    status: "completed",
-    method: "USSD",
-    account: "First Bank •••• 5566",
-    reference: "DEP-30FB44",
-    fee: 50
-  }
-]
+  { id: "dp_013", date: "2026-01-08T13:50:00Z", amount: 25000, currency: "USD", status: "completed", method: "Card", account: "UBA •••• 1100", reference: "DEP-13UB44", fee: 100 },
+  { id: "dp_014", date: "2026-01-09T09:10:00Z", amount: 14500, currency: "EUR", status: "failed", method: "Bank Transfer", account: "Zenith Bank •••• 3322", reference: "DEP-14ZX66", fee: 0 },
+  { id: "dp_015", date: "2026-01-09T14:30:00Z", amount: 12000, currency: "GBP", status: "completed", method: "USSD", account: "First Bank •••• 5566", reference: "DEP-15FB77", fee: 50 },
+
+  { id: "dp_016", date: "2026-01-10T11:05:00Z", amount: 23000, currency: "USD", status: "completed", method: "Card", account: "GTBank •••• 9988", reference: "DEP-16GT88", fee: 100 },
+  { id: "dp_017", date: "2026-01-10T15:15:00Z", amount: 9500, currency: "EUR", status: "pending", method: "Bank Transfer", account: "Access Bank •••• 3344", reference: "DEP-17AC99", fee: 0 },
+  { id: "dp_018", date: "2026-01-11T09:50:00Z", amount: 20000, currency: "GBP", status: "completed", method: "USSD", account: "UBA •••• 6677", reference: "DEP-18UB11", fee: 100 },
+
+  { id: "dp_019", date: "2026-01-11T14:20:00Z", amount: 12500, currency: "USD", status: "completed", method: "Card", account: "Zenith Bank •••• 2244", reference: "DEP-19ZX22", fee: 50 },
+  { id: "dp_020", date: "2026-01-12T10:10:00Z", amount: 7000, currency: "EUR", status: "failed", method: "USSD", account: "First Bank •••• 7788", reference: "DEP-20FB33", fee: 0 },
+
+  { id: "dp_021", date: "2026-01-12T13:30:00Z", amount: 25000, currency: "GBP", status: "completed", method: "Bank Transfer", account: "GTBank •••• 1122", reference: "DEP-21GT44", fee: 100 },
+  { id: "dp_022", date: "2026-01-13T16:40:00Z", amount: 9000, currency: "USD", status: "pending", method: "Card", account: "Access Bank •••• 5566", reference: "DEP-22AC55", fee: 0 },
+  { id: "dp_023", date: "2026-01-14T11:25:00Z", amount: 5000, currency: "EUR", status: "failed", method: "Bank Transfer", account: "UBA •••• 8899", reference: "DEP-23UB66", fee: 0 },
+
+  { id: "dp_024", date: "2026-01-14T09:40:00Z", amount: 18000, currency: "GBP", status: "completed", method: "USSD", account: "Zenith Bank •••• 9900", reference: "DEP-24ZX77", fee: 50 },
+  { id: "dp_025", date: "2026-01-15T15:55:00Z", amount: 10500, currency: "USD", status: "pending", method: "Card", account: "First Bank •••• 2233", reference: "DEP-25FB88", fee: 0 },
+  { id: "dp_026", date: "2026-01-16T12:15:00Z", amount: 8000, currency: "EUR", status: "completed", method: "Bank Transfer", account: "GTBank •••• 3344", reference: "DEP-26GT99", fee: 100 },
+
+  { id: "dp_027", date: "2026-01-16T16:40:00Z", amount: 4500, currency: "GBP", status: "failed", method: "USSD", account: "Access Bank •••• 6677", reference: "DEP-27AC11", fee: 0 },
+  { id: "dp_028", date: "2026-01-17T09:30:00Z", amount: 19500, currency: "USD", status: "completed", method: "Card", account: "UBA •••• 2233", reference: "DEP-28UB22", fee: 100 },
+  { id: "dp_029", date: "2026-01-17T14:50:00Z", amount: 12500, currency: "EUR", status: "pending", method: "Bank Transfer", account: "Zenith Bank •••• 4455", reference: "DEP-29ZX33", fee: 0 },
+
+  { id: "dp_030", date: "2026-01-18T11:10:00Z", amount: 7000, currency: "GBP", status: "completed", method: "USSD", account: "First Bank •••• 5566", reference: "DEP-30FB44", fee: 50 }
+];

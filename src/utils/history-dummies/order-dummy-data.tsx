@@ -2,15 +2,17 @@ export type OrderStatus = "completed" | "pending" | "failed";
 export type OrderType = "buy" | "sell";
 export type Metal = "Gold" | "Silver" | "Platinum" | "Palladium";
 
+export type Currency = "USD" | "EUR" | "GBP";
+
 export type typeOrderHistory = {
   id: string;
   date: string;
   metal: Metal;
   type: OrderType;
   amount: number; // in grams
-  pricePerUnit: number; // NGN per gram
-  total: number; // amount * pricePerUnit
-  currency: "NGN";
+  pricePerUnit: number;
+  total: number;
+  currency: Currency;
   status: OrderStatus;
   method: "Bank Transfer" | "Card" | "USSD";
   account: string;
@@ -28,12 +30,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 10,
     pricePerUnit: 50000,
     total: 10 * 50000,
-    currency: "NGN",
+    currency: "USD",
     status: "completed",
     method: "Bank Transfer",
     account: "GTBank •••• 2145",
     reference: "ORD-1GOLD",
-    fee: 500
+    fee: 500,
   },
   {
     id: "or_002",
@@ -43,12 +45,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 200,
     pricePerUnit: 650,
     total: 200 * 650,
-    currency: "NGN",
+    currency: "EUR",
     status: "pending",
     method: "USSD",
     account: "Access Bank •••• 8891",
     reference: "ORD-2SILV",
-    fee: 100
+    fee: 100,
   },
   {
     id: "or_003",
@@ -58,13 +60,13 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 5,
     pricePerUnit: 28000,
     total: 5 * 28000,
-    currency: "NGN",
+    currency: "GBP",
     status: "failed",
     method: "Card",
     account: "UBA •••• 1029",
     reference: "ORD-3PLAT",
     fee: 0,
-    reason: "Insufficient funds"
+    reason: "Insufficient funds",
   },
   {
     id: "or_004",
@@ -74,12 +76,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 2,
     pricePerUnit: 150000,
     total: 2 * 150000,
-    currency: "NGN",
+    currency: "USD",
     status: "completed",
     method: "Bank Transfer",
     account: "Zenith Bank •••• 3344",
     reference: "ORD-4PALL",
-    fee: 200
+    fee: 200,
   },
   {
     id: "or_005",
@@ -89,12 +91,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 15,
     pricePerUnit: 50200,
     total: 15 * 50200,
-    currency: "NGN",
+    currency: "EUR",
     status: "completed",
     method: "USSD",
     account: "First Bank •••• 1122",
     reference: "ORD-5GOLD",
-    fee: 500
+    fee: 500,
   },
   {
     id: "or_006",
@@ -104,12 +106,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 300,
     pricePerUnit: 640,
     total: 300 * 640,
-    currency: "NGN",
+    currency: "GBP",
     status: "pending",
     method: "Card",
     account: "GTBank •••• 7788",
     reference: "ORD-6SILV",
-    fee: 150
+    fee: 150,
   },
   {
     id: "or_007",
@@ -119,12 +121,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 7,
     pricePerUnit: 27900,
     total: 7 * 27900,
-    currency: "NGN",
+    currency: "USD",
     status: "completed",
     method: "Bank Transfer",
     account: "Access Bank •••• 5566",
     reference: "ORD-7PLAT",
-    fee: 350
+    fee: 350,
   },
   {
     id: "or_008",
@@ -134,13 +136,13 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 1,
     pricePerUnit: 151000,
     total: 1 * 151000,
-    currency: "NGN",
+    currency: "EUR",
     status: "failed",
     method: "USSD",
     account: "UBA •••• 9911",
     reference: "ORD-8PALL",
     fee: 0,
-    reason: "Bank declined"
+    reason: "Bank declined",
   },
   {
     id: "or_009",
@@ -150,12 +152,12 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 20,
     pricePerUnit: 49900,
     total: 20 * 49900,
-    currency: "NGN",
+    currency: "GBP",
     status: "completed",
     method: "Card",
     account: "Zenith Bank •••• 6677",
     reference: "ORD-9GOLD",
-    fee: 600
+    fee: 600,
   },
   {
     id: "or_010",
@@ -165,13 +167,11 @@ export const ordersHistory: typeOrderHistory[] = [
     amount: 150,
     pricePerUnit: 660,
     total: 150 * 660,
-    currency: "NGN",
+    currency: "USD",
     status: "completed",
     method: "Bank Transfer",
     account: "First Bank •••• 2233",
     reference: "ORD-10SILV",
-    fee: 100
+    fee: 100,
   },
-
- 
 ];

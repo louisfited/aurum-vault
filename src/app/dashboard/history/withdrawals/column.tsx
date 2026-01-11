@@ -1,27 +1,27 @@
-"use client"
- 
-import { ColumnDef } from "@tanstack/react-table"
+"use client";
+
+import { ColumnDef } from "@tanstack/react-table";
 
 export type WithdrawalStatus = "completed" | "pending" | "failed";
 
 export type Withdrawal = {
   id: string;
-  date: string; 
+  date: string;
   amount: number;
-  currency: "NGN";
+  currency: "USD" | "EUR" | "GBP";
   status: WithdrawalStatus;
   method: string;
   account: string;
   reference: string;
   fee: number;
-  reason?: string; 
+  reason?: string;
 };
 
 export const columns: ColumnDef<Withdrawal>[] = [
-//   {
-//     accessorKey: "id",
-//     header: "ID",
-//   },
+  //   {
+  //     accessorKey: "id",
+  //     header: "ID",
+  //   },
   {
     accessorKey: "date",
     header: "Date",
@@ -44,19 +44,19 @@ export const columns: ColumnDef<Withdrawal>[] = [
     accessorKey: "currency",
     header: "Currency",
   },
- {
+  {
     accessorKey: "status",
     header: "Status",
     cell: ({ getValue }) => {
       const status = getValue<string>();
       const bgColor =
         status === "completed"
-          ? "bg-green-100 bg-green-600"
+          ? "bg-green-100 text-green-800"
           : status === "pending"
-          ? " bg-yellow-600"
+          ? "bg-yellow-100 text-yellow-800"
           : status === "failed"
-          ? " bg-red-600"
-          : " bg-gray-600";
+          ? "bg-red-100 text-red-800"
+          : "bg-gray-100 text-gray-800";
 
       return (
         <span
