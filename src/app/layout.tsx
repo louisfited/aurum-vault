@@ -4,6 +4,8 @@ import "./globals.css";
 import AosProvider from "@/providers/aos-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import ReactQueryProvider from "@/components/react-query-provider";
+import { Modal } from "@/components/modal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,18 +32,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+        <ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
           >
-          <AosProvider/>
-          <SidebarProvider>
-
-        {children}
-          </SidebarProvider>
-        </ThemeProvider>
+            <AosProvider />
+            <Modal />
+            <SidebarProvider>{children}</SidebarProvider>
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

@@ -7,12 +7,25 @@ export type typeDeposit = {
   date: string;
   amount: number;
   currency: "EUR" | "GBP" | "USD";
-  status: string; // keep as string to match withdrawals
+  status: string;
   method: string;
   account: string;
-  reference: string;
+  reference: string | null;
   fee: number;
   reason?: string;
+};
+
+export type Deposit = {
+  id: number;
+  user_id: string;
+  amount: number;
+  currency: "USD" | "NGN" | "EUROS";
+  method: "bank" | "crypto";
+  bank_name?: string;
+  account_no?: string;
+  receipt_url?: string;
+  status: "pending" | "rejected" | "confirmed";
+  created_at: string;
 };
 
 export const depositColumns: ColumnDef<typeDeposit>[] = [

@@ -1,12 +1,5 @@
+"use client";
 import { BadgeQuestionMark, FileQuestionMark } from "lucide-react";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import {
   Accordion,
@@ -14,20 +7,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { countries } from "@/utils/countries";
-import { useMemo } from "react";
+
 import { accordionInfos } from "@/utils/deposit-accordion-info";
 
+import DepositForm from "./form";
+
 const Page = () => {
-  const countriesList = useMemo(() => {
-    return countries.map((item, index) => {
-      return (
-        <SelectItem key={item.code} value={item.code}>
-          {item.name}
-        </SelectItem>
-      );
-    });
-  }, []);
   return (
     <div className="">
       {/* Account Info */}
@@ -46,38 +31,7 @@ const Page = () => {
       {/* second section */}
       <section className="py-4 flex lg:flex-row flex-col gap-x-4 lg:gap-y-0 gap-y-4 ">
         {/* select your info */}
-        <div className="lg:w-[40%] w-full  rounded-lg  py-4 px-4 lg:max-h-50 lg:sticky top-[2%] left-[0%] border-border border">
-          <aside className="">
-            <h1 className="">My bank account is in:</h1>
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="select country" />
-              </SelectTrigger>
-              <SelectContent>{countriesList}</SelectContent>
-            </Select>
-          </aside>
-
-          <aside className="my-4">
-            <h1 className="">I want to send :</h1>
-
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="USD" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="USD">USD </SelectItem>
-                <SelectItem value="NGN">NGN</SelectItem>
-                <SelectItem value="EUROS">Euros</SelectItem>
-              </SelectContent>
-            </Select>
-            {/* <select name="" id="" className='dark:bg-darkOne w-full dark:border-gray-500 border-gray-300 border-2 p-2 rounded-lg mt-2'>
-    <option value="">USD</option>
-    <option value="">Euro</option>
-    <option value="">Naira</option>
-
-    </select> */}
-          </aside>
-        </div>
+        <DepositForm />
 
         {/* full details */}
 
