@@ -1,20 +1,40 @@
-// app/auth/callback/route.ts
 import { NextResponse } from "next/server";
+// The client you created from the Server-Side Auth instructions
 import { createSupabaseServerClient } from "@/utils/supabase/server";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/";
+  // if "next" is in param, use it as the redirect URL
+  let next = searchParams.get("next") ?? "/";
+  if (!next.startsWith("/")) {
+    // if "next" is not a relative URL, use the default
+    next = "/";
+  }
 
   if (code) {
     const supabase = await createSupabaseServerClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      return NextResponse.redirect(`localhost:3000/dashboard/balance`);
+      const forwardedHost = request.headers.get("x-forwarded-host"); // original origin before load balancer
+      const isLocalEnv = process.env.NODE_ENV === "development";
+      if (isLocalEnv) {
+        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
+        console.log("from if");
+
+        return NextResponse.redirect(`${origin}${next}dashboard/balance`);
+      } else if (forwardedHost) {
+        console.log("from else if");
+
+        return NextResponse.redirect(`https://${forwardedHost}${next}`);
+      } else {
+        console.log("form else");
+
+        return NextResponse.redirect(`${origin}${next}dashboard/balance`);
+      }
     }
   }
 
-  // Return the user to an error page if something goes wrong
-  return NextResponse.redirect(`${origin}/auth/auth-error`);
+  // return the user to an error page with instructions
+  return NextResponse.redirect(`${origin}/auth/auth-code-error`);
 }
