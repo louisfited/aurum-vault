@@ -80,10 +80,10 @@ export function SignupForm({
       return;
     }
     const supabase = createClient();
-    supabase.auth.signInWithOAuth({
+    await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${siteUrl}/dashboard/balance`,
+        redirectTo: `${siteUrl}/auth/balance`,
       },
     });
   };
