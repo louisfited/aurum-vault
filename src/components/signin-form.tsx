@@ -28,6 +28,7 @@ export function SigninForm({
   ...props
 }: React.ComponentProps<"form">) {
   const router = useRouter();
+  const [errorMsg, setErrorMsg] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -49,9 +50,11 @@ export function SigninForm({
       } else {
         setIsLoading(false);
         console.log("error message", res.message);
+        setErrorMsg(res.message);
       }
     } catch (error) {
       console.error("Login failed:", error);
+      setErrorMsg("unable to precess request at the moment");
       setIsLoading(false);
     }
   }
@@ -80,11 +83,14 @@ export function SigninForm({
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Sign In</h1>
           <p className="text-muted-foreground text-sm text-balance">
-            Fill in the form below to Sign <input type="text" name="" id="" />
+            Fill in the form below to Sign in
           </p>
         </div>
 
         {/* Email */}
+        <div>
+          {errorMsg ? <p className="text-red-500"> {errorMsg}</p> : null}
+        </div>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
           <Input
