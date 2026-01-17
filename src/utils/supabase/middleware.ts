@@ -9,6 +9,9 @@ export const updateSession = async (request: NextRequest) => {
 
   const url = new URL(request.url);
   const path = request.nextUrl.pathname;
+  if (path.startsWith("/auth")) {
+    return NextResponse.next();
+  }
 
   if (
     path === "/" ||
