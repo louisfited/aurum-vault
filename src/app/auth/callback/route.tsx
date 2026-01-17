@@ -26,7 +26,9 @@ export async function GET(request: Request) {
       } else if (forwardedHost) {
         console.log("from else if");
 
-        return NextResponse.redirect(`https://${forwardedHost}${next}`);
+        return NextResponse.redirect(
+          `https://${forwardedHost}${next}dashboard/balance`
+        );
       } else {
         console.log("form else");
 
