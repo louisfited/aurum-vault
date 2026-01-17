@@ -104,18 +104,23 @@ const Page = () => {
           </header>
 
           {/* account btn */}
-          <div className="flex justify-evenly flex-wrap mb-4 gap-y-2">
-            {["USD", "NGN", "EUR", "GBP", "All Currency"].map((currency) => (
-              <Button
-                key={currency}
-                variant={activeCurrency === currency ? "default" : "outline"}
-                onClick={() => setActiveCurrency(currency)}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2"
-              >
-                {currency}
-              </Button>
-            ))}
-          </div>
+          <section>
+            <h1 className="font-semibold text-center uppercase text-lg py-4">
+              I want to deposit ?
+            </h1>
+            <div className="flex justify-evenly flex-wrap mb-4 gap-y-2">
+              {["USD", "NGN", "EUR", "GBP", "All Currency"].map((currency) => (
+                <Button
+                  key={currency}
+                  variant={activeCurrency === currency ? "default" : "outline"}
+                  onClick={() => setActiveCurrency(currency)}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2"
+                >
+                  {currency}
+                </Button>
+              ))}
+            </div>
+          </section>
           <aside className=" my-4 md:px-4 rounded-md">
             {/*  */}
 
