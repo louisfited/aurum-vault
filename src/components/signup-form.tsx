@@ -102,7 +102,11 @@ export function SignupForm({
           </p>
         </div>
 
+        <div>
+          {errorMsg ? <p className="text-red-500"> {errorMsg}</p> : null}
+        </div>
         {/* Full Name */}
+
         <Field>
           <FieldLabel htmlFor="fullName">Full Name</FieldLabel>
           <Input
