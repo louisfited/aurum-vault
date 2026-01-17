@@ -19,7 +19,7 @@ const Page = () => {
 
   const bankInfoDisplay = () => {
     return (
-      <div className="flex flex-col gap-y-2 dark:bg-slate-900 bg-slate-100 md:px-2">
+      <div className="flex flex-col gap-y-2 dark:bg-slate-900 bg-slate-100 p-2">
         {/* Payee */}
         <aside className="flex justify-between  md:flex-row flex-col">
           <span>Payee/beneficiary:</span>
@@ -91,10 +91,10 @@ const Page = () => {
           <header className=" pt-2  rounded-lg">
             <h1 className="font-semibold text-xl">Manual Bank Transfer</h1>
             <div className="flex justify-between items-center border-b">
-              <div className="">Nigeria: to send US dollars</div>
+              {/* <div className="">Nigeria: to send US dollars</div>
               <span className="text-lg">
                 <BadgeQuestionMark />
-              </span>
+              </span> */}
             </div>
             <div className="py-4">
               If you send a payment in your local currency, our bank will
