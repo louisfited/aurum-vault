@@ -9,10 +9,62 @@ import {
 } from "@/components/ui/accordion";
 
 import { accordionInfos } from "@/utils/deposit-accordion-info";
+import { Button } from "@/components/ui/button";
 
 import DepositForm from "./form";
+import { useState } from "react";
 
 const Page = () => {
+  const [activeCurrency, setActiveCurrency] = useState<string>("USD");
+
+  const bankInfoDisplay = () => {
+    return (
+      <div className="flex flex-col gap-y-2 dark:bg-slate-900 bg-slate-100 md:px-2">
+        {/* Payee */}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Payee/beneficiary:</span>
+          <span className="font-semibold">Aurum Client AC</span>
+        </aside>
+        {/* bank */}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Bank:</span> <span className="font-semibold">Lloyds Bank</span>
+        </aside>
+        {/* bank */}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Branch address:</span>
+          <span className="font-semibold">
+            70-71 Cheapside, London, United Kingdom, EC2V 6EN
+          </span>
+        </aside>
+        {/* bank */}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Account number:</span>
+          <span className="font-semibold">11478192</span>
+        </aside>
+        {/* IBAN:*/}
+        <aside className="flex md:flex-row flex-col  justify-between">
+          <span>IBAN:</span>
+          <span className="font-semibold">GB26LOYD30000911478192</span>
+        </aside>
+        {/* IBAN:*/}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>SWIFT BIC:</span>
+          <span className="font-semibold">LOYDGB2L</span>
+        </aside>
+        {/* IBAN:*/}
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Payment reference/memo:</span>
+          <span className="font-semibold uppercase">James</span>
+        </aside>
+        <aside className="flex justify-between  md:flex-row flex-col">
+          <span>Correspondent bank (if required):</span>
+          <span className="font-semibold uppercase text-sm">
+            Wells Fargo, New York - ABA #026005092
+          </span>
+        </aside>
+      </div>
+    );
+  };
   return (
     <div className="">
       {/* Account Info */}
@@ -51,28 +103,44 @@ const Page = () => {
             </div>
           </header>
 
-          <aside className=" my-4 px-4 rounded-md">
+          {/* account btn */}
+          <div className="flex justify-evenly flex-wrap mb-4 gap-y-2">
+            {["USD", "NGN", "EUR", "GBP", "All Currency"].map((currency) => (
+              <Button
+                key={currency}
+                variant={activeCurrency === currency ? "default" : "outline"}
+                onClick={() => setActiveCurrency(currency)}
+                className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2"
+              >
+                {currency}
+              </Button>
+            ))}
+          </div>
+          <aside className=" my-4 md:px-4 rounded-md">
             {/*  */}
 
-            {accordionInfos.map((item, index) => {
-              return (
-                <Accordion type="single" key={index + 1} collapsible>
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-medium">
-                      {item.title}
-                    </AccordionTrigger>
-                    {item.options.map((subItem, subIndex) => {
-                      return (
-                        <AccordionContent key={subIndex}>
-                          <p className="">{subItem.title}</p>
-                          <h1 className="font-semibold">{subItem.dest}</h1>
-                        </AccordionContent>
-                      );
-                    })}
-                  </AccordionItem>
-                </Accordion>
-              );
-            })}
+            {activeCurrency !== "All Currency" && bankInfoDisplay()}
+
+            {activeCurrency == "All Currency" &&
+              accordionInfos.map((item, index) => {
+                return (
+                  <Accordion type="single" key={index + 1} collapsible>
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="font-medium">
+                        {item.title}
+                      </AccordionTrigger>
+                      {item.options.map((subItem, subIndex) => {
+                        return (
+                          <AccordionContent key={subIndex}>
+                            <p className="">{subItem.title}</p>
+                            <h1 className="font-semibold">{subItem.dest}</h1>
+                          </AccordionContent>
+                        );
+                      })}
+                    </AccordionItem>
+                  </Accordion>
+                );
+              })}
           </aside>
           {/* notice */}
 
