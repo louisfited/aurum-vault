@@ -83,7 +83,7 @@ export function SignupForm({
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${siteUrl}/auth/balance`,
+        redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
   };
